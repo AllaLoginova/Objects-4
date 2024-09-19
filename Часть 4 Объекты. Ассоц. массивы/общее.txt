@@ -1,0 +1,63 @@
+let user = new Object(); // синтаксис "конструктор объекта"
+let user = {};  // синтаксис "литерал объекта"
+
+let user = {     // объект
+  name: "John",  // под ключом "name" хранится значение "John"
+  age: 30        // под ключом "age" хранится значение 30
+};
+
+// получаем свойства объекта:
+alert( user.name ); // John
+alert( user.age ); // 30
+
+// добавление
+user.isAdmin = true;
+
+// удаление
+delete user.age;
+
+let user = {
+  name: "John",
+  age: 30,
+  "likes birds": true  // имя свойства из нескольких слов должно быть в кавычках
+};
+
+let user = {};
+
+// присваивание значения свойству
+user["likes birds"] = true;
+
+// получение значения свойства
+alert(user["likes birds"]); // true
+
+// удаление свойства
+delete user["likes birds"];
+
+let key = "likes birds";
+
+// то же самое, что и user["likes birds"] = true;
+user[key] = true;
+
+let user = { name: "John", age: 30 };
+
+alert( "age" in user ); // true, user.age существует
+alert( "blabla" in user ); // false, user.blabla не существует
+
+let user = {
+  name: "John",
+  age: 30,
+  isAdmin: true
+};
+
+for (let key in user) {
+  // ключи
+  alert( key );  // name, age, isAdmin
+  // значения ключей
+  alert( user[key] ); // John, 30, true
+}
+
+// Math.trunc - встроенная функция, которая удаляет десятичную часть
+alert( String(Math.trunc(Number("49"))) ); // "49", то же самое ⇒ свойство целочисленное
+alert( String(Math.trunc(Number("+49"))) ); // "49", не то же самое, что "+49" ⇒ свойство не целочисленное
+alert( String(Math.trunc(Number("1.2"))) ); // "1", не то же самое, что "1.2" ⇒ свойство не целочисленное
+
